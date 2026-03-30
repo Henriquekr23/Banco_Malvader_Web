@@ -16,6 +16,9 @@ form.addEventListener('submit', async(error) => {
             },
             body: JSON.stringify({ nome, email, senha, cpf })
         });
+
+        const data = await res.json();
+        alert(data.mensagem);
     } catch(error) {
         console.error("Erro: ", error);
     }
