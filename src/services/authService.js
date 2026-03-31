@@ -1,4 +1,5 @@
 const db = require('../config/dataBase');
+const { verifyPassword } = require('../utils/hashPassword');
 
 // exporta função de login
 exports.login = async ({ email, senha }) => {
@@ -10,7 +11,7 @@ exports.login = async ({ email, senha }) => {
 
     // seleciona os dados pelo email* e coloca na variavel linha
     const [rows] = await db.query(
-        'SELECT * FROM usuario WHERE email = ?',
+        'SELECT * FROM TB01_USUARIO WHERE email_usuario = ?',
         [email]
     );
 
@@ -22,8 +23,9 @@ exports.login = async ({ email, senha }) => {
     // cria uma variavel com os dados do usuario
     const usuario = rows[0];
 
-    // Comparação simples e temporária (Aplicar criptografia)
-    if(usuario.senha !== senha){
+    const senhaValidaHash = await verifyPassword(usuario.senha, senha);
+
+    if(!senhaValidaHash){
         throw new Error("Senha incorreta");
     }
 
