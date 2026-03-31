@@ -1,10 +1,19 @@
 const db = require('../config/dataBase');
 
-exports.cadastrar = async (dados) => {
+exports.register = async (dados) => {
     const {nome, email, senha, cpf} = dados;
 
     if (!nome || !email || !senha || !cpf) {
         throw new Error("Campos Obrigatórios");
+    }
+
+    const [rows] = await db.query(
+        'SELECT * FROM usuario WHERE email = ? OR cpf = ?',
+        [email, cpf]
+    );
+
+    if (rows.length === 0){
+        throw new Error("Usuário já cadastrado no sistema");
     }
 
     await db.query(
@@ -12,5 +21,5 @@ exports.cadastrar = async (dados) => {
         [nome, email, senha, cpf]
     );
 
-    return {mensagem: "Usuário Criado"};
+    return {mensagem: "Usuário Registrado"};
 };

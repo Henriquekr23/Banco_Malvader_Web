@@ -1,25 +1,24 @@
-const form = document.getElementById('cadastroForm');
+const form = document.createElementbyId('loginForm');
 
 form.addEventListener('submit', async(error) => {
     error.preventDefault();
 
-    const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
-    const cpf = document.getElementById('cpf').value;
 
     try {
-        const res = await fetch('http://localhost:3000/register ', {
+        const res = await fetch('http://localhost:3000/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nome, email, senha, cpf })
+            body: JSON.stringify({ email, senha })
         });
 
         const data = await res.json();
         alert(data.mensagem);
+
     } catch(error) {
-        console.error("Erro: ", error);
+        console.error("erro: ", error);
     }
 });
