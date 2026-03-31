@@ -12,14 +12,14 @@ const app = express();
 app.use(express.static('public'));
 
 app.use(cors({
-    origin: 'http://localhost:3000', //só permite requisições deste endereço
+    origin: true,
     credentials: true //permite o uso de credenciais
 }));
 
 app.use(express.json());
 app.use(cookieParser())
 
-app.use('/register', registerRoutes);
-app.use('/auth', authRoutes);
+app.use('/api/register', registerRoutes);
+app.use('/api/auth', authRoutes);
 
 module.exports = app;

@@ -1,4 +1,4 @@
-const form = document.createElementbyId('loginForm');
+const form = document.getElementById('loginForm');
 
 form.addEventListener('submit', async(error) => {
     error.preventDefault();
@@ -6,19 +6,18 @@ form.addEventListener('submit', async(error) => {
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
 
-    try {
-        const res = await fetch('http://localhost:3000/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, senha })
-        });
+    const res = await fetch('api/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({ email, senha })
+    });
 
-        const data = await res.json();
-        alert(data.mensagem);
-
-    } catch(error) {
-        console.error("erro: ", error);
+    if(res.ok) {
+        window.location.href = '/index.html';
+    } else {
+        alert('Email ou senha inválidos')
     }
 });
