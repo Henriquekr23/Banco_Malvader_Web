@@ -1,4 +1,3 @@
-// const { response } = require("../../src/app");
 const form = document.getElementById('cadastroForm');
 
 form.addEventListener('submit', async(error) => {
@@ -10,7 +9,7 @@ form.addEventListener('submit', async(error) => {
         const senha = document.getElementById('senha').value;
         const cpf = document.getElementById('cpf').value;
 
-        const res = await fetch('http://localhost:3000/api/register', {
+        const res = await fetch('http://localhost:3000/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

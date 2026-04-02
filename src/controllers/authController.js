@@ -1,10 +1,19 @@
 const authService = require('../services/authService');
 const jwt = require('jsonwebtoken');
 
+exports.register = async(req, res) => {
+    try {
+        console.log(req.body);
+        const usuario = await authService.register(req.body);
+        res.status(201).json(usuario);
+    } catch(error) {
+        res.status(400).json({ Erro: error.mensagem });
+    }
+};
+
 exports.login = async(req, res) => {
     try {
         const usuario = await authService.login(req.body);
-
         const token = jwt.sign(
             {id: usuario.id, email: usuario.email},
             process.env.JWT_SECRET,
@@ -17,9 +26,7 @@ exports.login = async(req, res) => {
             sameSite: 'strict', // Protege contra CSRF
             maxAge: 60*60*1000
         });
-
         res.status(200).json({ mensagem: "Login realizado com sucesso!" });
-
     } catch(error) {
         res.status(400).json({ erro: error.mensagem });
     }
