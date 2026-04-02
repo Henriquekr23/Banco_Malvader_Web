@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Fira+Code:wght@300..700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Albert Sans', sans-serif;
 }
 
 body {
     background-color: #f4f4f9;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 /* =========================
@@ -18,7 +24,7 @@ body {
     margin: 20px auto;
     background-color: #4A5878;
     border-radius: 12px;
-    padding: 15px 40px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,6 +42,10 @@ body {
     list-style: none;
     display: flex;
     gap: 40px;
+    font-weight: bolder;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-links a {
@@ -43,29 +53,20 @@ body {
     color: white;
     font-weight: 500;
     position: relative;
-    transition: 0.3s ease;
+    transition: all 0.25s ease;
+    display: inline-block;
 }
 
-/* underline animado */
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -6px;
-    left: 0;
-    background-color: #FFD23F;
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+.nav-links a:hover {
+    color: #FFD23F;
+    transform: scale(1.08);
 }
 
 .auth-btn {
     background-color: #FFD23F;
     border: none;
-    padding: 10px 20px;
+    font-size: 18px;
+    padding: 5px 10px;
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
@@ -75,6 +76,16 @@ body {
 .auth-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    object-fit: contain;
 }
 
 /* =========================

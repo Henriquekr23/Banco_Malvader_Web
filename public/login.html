@@ -7,27 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <div class="form-container" style="text-align: center;">
-            <h2>Login de Usuário</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <br>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="senha">Senha:</label>
-                    <br>
-                    <input type="password" id="senha" name="senha" required>
-                </div>
-                <button type="submit" class="btn">Entrar</button>
-            </form>
-            <p style="text-align: center; margin-top: 15px;">
-                Não tem uma conta? <a href="/cadastro.html">Cadastre-se</a>
-            </p>
-        </div>
-    </main>
-    <script src="./js/login.js"></script>
+
+    <div class="page-center">
+        <main>
+            <div class="form-container">
+                <h2>Login de Usuário</h2>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
+                    </div>
+
+                    <button type="submit" class="btn">Entrar</button>
+                </form>
+
+                <p>
+                    Não tem uma conta?
+                    <a href="cadastro.html">Cadastre-se</a>
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/login.js"></script>
 </body>
 </html>

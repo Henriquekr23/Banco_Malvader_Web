@@ -12,14 +12,10 @@ async function checkLogin() {
         if (res.ok) {
             const data = await res.json();
             isLogged = true;
-
             authButton.textContent = "Minha Conta";
-            authButton.style.backgroundColor = "#28a745";
         } else {
             isLogged = false;
-
             authButton.textContent = "Acesse/Crie sua conta";
-            authButton.style.backgroundColor = "#FFD23F";
         }
 
     } catch(error) {
@@ -36,6 +32,6 @@ authButton.addEventListener("click", () => {
     if (isLogged) {
         window.location.href = "/minhaConta.html";
     } else {
-        window.location.href = "/login.html";
+        window.location.href = "login.html";
     }
 });
