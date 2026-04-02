@@ -36,3 +36,12 @@ exports.logout = (req, res) => {
     res.clearCookie('token');
     res.json({ mensagem: "Logout Realizado com sucesso!" });
 };
+
+exports.me = async(req, res) => {
+    const token = req.cookies.token
+
+    if (token) res.json({
+        logged: true,
+        user: req.user
+    });
+};

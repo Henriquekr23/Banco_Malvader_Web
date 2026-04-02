@@ -1,98 +1,91 @@
-/* Estilização para a página de login */
-
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-main {
-    width: 100%;
-    max-width: 400px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-h2 {
-    color: #333333;
-    margin-bottom: 20px;
-}
-
-.form-container {
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555555;
-}
-
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-size: 14px;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+body {
+    background-color: #f4f4f9;
 }
 
-button.btn {
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px; 
-    cursor: pointer;
-    font-size: 16px;
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 95%;
+    margin: 20px auto;
+    background-color: #4A5878;
+    border-radius: 12px;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    animation: fadeDown 0.5s ease;
+}
+
+.logo-number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #FFD23F;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* underline animado */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: #FFD23F;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
     width: 100%;
 }
 
-button.btn:hover {
-    background-color: #0056b3;
+.auth-btn {
+    background-color: #FFD23F;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-p a {
-    color: #007bff;
-    text-decoration: none;
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
 }
 
-p a:hover {
-    text-decoration: underline;
-}
+/* =========================
+   LAYOUT CENTRALIZADO 
+========================= */
 
-/* Estilização para a página de cadastro */
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
+.page-center {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - 120px);
 }
 
 main {
@@ -102,14 +95,12 @@ main {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    animation: fadeUp 0.4s ease;
 }
 
 h2 {
     color: #333333;
     margin-bottom: 20px;
-}
-
-.form-container {
     text-align: center;
 }
 
@@ -133,37 +124,68 @@ input[type="password"] {
     border: 1px solid #cccccc;
     border-radius: 4px;
     font-size: 14px;
-    box-sizing: border-box;
+    transition: 0.3s;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #007bff;
+input:focus {
+    border-color: #4A5878;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 5px rgba(74, 88, 120, 0.5);
 }
 
 button.btn {
-    background-color: #007bff;
+    background-color: #4A5878;
     color: #ffffff;
     border: none;
     padding: 10px 15px;
-    border-radius: 4px;
+    border-radius: 6px; 
     cursor: pointer;
     font-size: 16px;
     width: 100%;
+    transition: 0.3s ease;
 }
 
 button.btn:hover {
-    background-color: #0056b3;
+    background-color: #3a4661;
+    transform: translateY(-2px);
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
 }
 
 p a {
-    color: #007bff;
+    color: #4A5878;
     text-decoration: none;
 }
 
 p a:hover {
     text-decoration: underline;
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
