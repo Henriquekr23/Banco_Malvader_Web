@@ -8,7 +8,6 @@ async function checkLogin() {
             method: 'GET',
             credentials: "include"
         });
-
         if (res.ok) {
             const data = await res.json();
             isLogged = true;
@@ -26,7 +25,7 @@ async function checkLogin() {
     }
 }
 
-checkLogin();
+islogged = checkLogin();
 
 authButton.addEventListener("click", () => {
     if (isLogged) {

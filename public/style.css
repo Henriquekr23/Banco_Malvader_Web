@@ -13,6 +13,8 @@ body {
 
 html {
     scroll-behavior: smooth;
+    height: 100%;
+    margin: 0;
 }
 
 /* =========================
@@ -20,16 +22,26 @@ html {
 ========================= */
 
 .navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 95%;
-    margin: 20px auto;
-    background-color: #4A5878;
-    border-radius: 12px;
-    padding: 10px 20px;
+    padding: 12px 25px;
+    border-radius: 14px;
+
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-    animation: fadeDown 0.5s ease;
+    align-items: center;
+
+    /* Glass effect */
+    background: rgba(24, 39, 81, 0.8);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+
+    z-index: 1000;
 }
 
 .logo-number {
@@ -60,6 +72,7 @@ html {
 .nav-links a:hover {
     color: #FFD23F;
     transform: scale(1.08);
+    filter: drop-shadow(0 0 1px rgba(255, 210, 63, 0.8));
 }
 
 .auth-btn {
@@ -75,7 +88,7 @@ html {
 
 .auth-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    filter: drop-shadow(0 0 1px rgba(255, 210, 63, 0.8));
 }
 
 .logo {
@@ -86,6 +99,61 @@ html {
 .logo img {
     height: 40px;
     object-fit: contain;
+    transition: all 0.4s ease;
+}
+
+/* Hover animado */
+.logo:hover img {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 0 1px rgba(255, 210, 63, 0.8));
+}
+
+/* =========================
+   HERO PARALLAX
+========================= */
+
+.hero {
+    height: 100vh;
+    background-image: url("images/Img 1 - Banco Malvader.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* AQUI está o parallax */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+/* Overlay escuro opcional para melhorar leitura */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+/* =========================
+   SEÇÃO DE CONTEÚDO
+========================= */
+
+.content {
+    min-height: 100vh;
+    background: white;
+    padding: 80px 10%;
+}
+
+.content h2 {
+    margin-bottom: 20px;
 }
 
 /* =========================
