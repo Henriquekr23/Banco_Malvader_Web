@@ -114,7 +114,7 @@ html {
 
 .hero {
     height: 100vh;
-    background-image: url("images/Img 1 - Banco Malvader.png");
+    background-image: url("../images/Img 1 - Banco Malvader.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

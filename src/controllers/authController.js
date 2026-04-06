@@ -20,9 +20,9 @@ exports.login = async(req, res) => {
         );
         
         res.cookie('token', token, {
-            httpOnly: true, // Protege contra XSS
+            httpOnly: true, 
             secure: false,
-            sameSite: 'strict', // Protege contra CSRF
+            sameSite: 'strict',
             maxAge: 60*60*1000
         });
         res.status(200).json({ mensagem: "Login realizado com sucesso!" });

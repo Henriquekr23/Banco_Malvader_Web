@@ -16,7 +16,7 @@ form.addEventListener('submit', async(error) => {
     });
 
     if(res.ok) {
-        window.location.href = '/index.html';
+        window.location.href = '/';
     } else {
         alert('Email ou senha inválidos')
     }

@@ -19,7 +19,7 @@ form.addEventListener('submit', async(error) => {
         });
 
         if(res.ok) {
-            window.location.href = '/index.html';
+            window.location.href = '/';
         }
     } catch(error) {
         console.error("Erro: ", error);

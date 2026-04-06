@@ -9,7 +9,7 @@ async function checkLogin() {
             credentials: "include"
         });
         if (res.ok) {
-            const data = await res.json();
+            // const data = await res.json();
             isLogged = true;
             authButton.textContent = "Minha Conta";
         } else {
@@ -29,8 +29,8 @@ islogged = checkLogin();
 
 authButton.addEventListener("click", () => {
     if (isLogged) {
-        window.location.href = "/minhaConta.html";
+        window.location.href = "account";
     } else {
-        window.location.href = "login.html";
+        window.location.href = "login";
     }
 });
