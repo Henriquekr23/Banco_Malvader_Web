@@ -13,7 +13,4 @@ async function verifyPassword(hash, password) {
     return await argon2.verify(hash, password);
 }
 
-module.exports = {
-    hashPassword,
-    verifyPassword
-};
+export { verifyPassword, hashPassword };

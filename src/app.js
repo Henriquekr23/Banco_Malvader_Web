@@ -24,8 +24,6 @@ app.use(express.static(path.join(basePath, 'public')));
 //     res.sendFile(path.join(basePath, 'views', 'login.html'));
 // });
 
-
-
 app.use('/api/auth', authRoutes);
 app.use('/', viewRoutes);
 
