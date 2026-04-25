@@ -1,8 +1,12 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const basePath = path.resolve(__dirname, '../..');
 
 const router = express.Router();
-const basePath = path.resolve(__dirname, '..', '..');
 
 // Função que envia o caminho da página
 const renderPage = (page) =>
@@ -19,4 +23,4 @@ router.get('/login', renderPage('login'));
 router.get('/account', renderPage('account'));
 router.get('/register', renderPage('register'));
 
-module.exports = router;
+export default router;

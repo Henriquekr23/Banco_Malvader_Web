@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
-module.exports.login = (req, res, next) => {
+export const login = (req, res, next) => {
     const token = req.cookies.token
 
     if (!token) {
@@ -16,7 +16,7 @@ module.exports.login = (req, res, next) => {
     }
 };
 
-module.exports.register = (req, res, next) => {
+export const register = (req, res, next) => {
     const token = req.headers.authorization;
 
     if (!token) {

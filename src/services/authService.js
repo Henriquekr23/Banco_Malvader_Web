@@ -1,7 +1,7 @@
 import pool from '../config/dataBase.js';
 import { verifyPassword, hashPassword } from '../utils/hashPassword.js';
 
-exports.register = async(dados) => {
+export const register = async(dados) => {
     const {nome, email, senha, cpf} = dados;
     if (!nome || !email || !senha || !cpf) throw new Error("Campos Obrigatórios");
     try {
@@ -21,7 +21,7 @@ exports.register = async(dados) => {
     }
 };
 
-exports.login = async ({ email, senha }) => {
+export const login = async ({ email, senha }) => {
     if(!email || !senha) throw new Error("Email e senha obrigatórios");
     try {
         const [rows] = await pool.query(
@@ -41,3 +41,5 @@ exports.login = async ({ email, senha }) => {
         throw new Error("Erro: ", error);
     }
 };
+
+export default { register, login };

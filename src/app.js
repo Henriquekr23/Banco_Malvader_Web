@@ -1,13 +1,17 @@
-require('dotenv').config();
+import 'dotenv/config';
 
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+import authRoutes from './routes/authRoutes';
+import viewRoutes from './routes/viewRoutes';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const basePath = path.resolve(__dirname, '..');
-
-const authRoutes = require('./routes/authRoutes');
-const viewRoutes = require('./routes/viewRoutes');
 
 const app = express();
 
@@ -17,7 +21,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(express.static(path.join(basePath, 'public')));
 
 // app.get('/login', (req, res) => {
@@ -27,4 +31,4 @@ app.use(express.static(path.join(basePath, 'public')));
 app.use('/api/auth', authRoutes);
 app.use('/', viewRoutes);
 
-module.exports = app;
+export default app;

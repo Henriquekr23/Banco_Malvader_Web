@@ -1,7 +1,7 @@
-const authService = require('../services/authService');
-const jwt = require('jsonwebtoken');
+import authService from '../services/authService.js';
+import jwt from 'jsonwebtoken';
 
-exports.register = async(req, res) => {
+export const register = async(req, res) => {
     try {
         const usuario = await authService.register(req.body);
         res.status(201).json(usuario);
@@ -10,7 +10,7 @@ exports.register = async(req, res) => {
     }
 };
 
-exports.login = async(req, res) => {
+export const login = async(req, res) => {
     try {
         const usuario = await authService.login(req.body);
         const token = jwt.sign(
@@ -31,12 +31,12 @@ exports.login = async(req, res) => {
     }
 };
 
-exports.logout = (req, res) => {
+export const logout = (req, res) => {
     res.clearCookie('token');
     res.json({ mensagem: "Logout Realizado com sucesso!" });
 };
 
-exports.me = async(req, res) => {
+export const me = async(req, res) => {
     const token = req.cookies.token
 
     if (token) res.json({
