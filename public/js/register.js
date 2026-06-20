@@ -20,6 +20,7 @@ form.addEventListener('submit', async(error) => {
 
         if(res.ok) {
             window.location.href = '/';
+            return;
         }
     } catch(error) {
         console.error("Erro: ", error);

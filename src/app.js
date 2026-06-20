@@ -6,8 +6,8 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import authRoutes from './routes/authRoutes';
-import viewRoutes from './routes/viewRoutes';
+import authRoutes from './routes/authRoutes.js';
+import viewRoutes from './routes/viewRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

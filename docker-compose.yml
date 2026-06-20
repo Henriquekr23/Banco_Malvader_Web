@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:15
@@ -13,20 +11,10 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - banco-net
-
-  adminer:
-    image: adminer
-    container_name: banco-malvader-adminer
-    restart: always
-    ports:
-      - "8080:8080"
-    networks:
-      - banco-net
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    # networks:
+    #   - banco-net
 
 volumes:
   postgres_data:
-
-networks:
-  banco-net:
+    driver: local

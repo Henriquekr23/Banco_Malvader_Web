@@ -1,31 +1,34 @@
 import pool from '../config/dataBase.js';
 import { verifyPassword, hashPassword } from '../utils/hashPassword.js';
 
-export const register = async(dados) => {
+const register = async(dados) => {
     const {nome, email, senha, cpf} = dados;
     if (!nome || !email || !senha || !cpf) throw new Error("Campos Obrigatórios");
     try {
-        const [rows] = await pool.query(
-            'SELECT id_usuario FROM TB01_USUARIO WHERE email_usuario = ? OR cpf_usuario = ? ',
+        const { rows } = await pool.query(
+            'SELECT id_usuario FROM TB01_USUARIO WHERE email_usuario = $1 OR cpf_usuario = $2 ',
             [email, cpf]
         );
+
         if (rows.length !== 0) throw new Error("Usuário já cadastrado");
+
         const senhaHash = await hashPassword(senha);
         await pool.query(
-            'INSERT INTO TB01_USUARIO (nome_usuario, email_usuario, senha_usuario, cpf_usuario) VALUES (?, ?, ?, ?)',
+            'INSERT INTO TB01_USUARIO (nome_usuario, email_usuario, senha_usuario, cpf_usuario) VALUES ($1, $2, $3, $4)',
             [nome, email, senhaHash, cpf]
         );
+
         return {mensagem: "Usuário cadastrado"};
     } catch(error) {
-        throw new Error("Erro: ", error);
+        throw new Error(error);
     }
 };
 
-export const login = async ({ email, senha }) => {
+const login = async ({ email, senha }) => {
     if(!email || !senha) throw new Error("Email e senha obrigatórios");
     try {
-        const [rows] = await pool.query(
-            'SELECT * FROM TB01_USUARIO WHERE email_usuario = ?',
+        const { rows } = await pool.query(
+            'SELECT * FROM TB01_USUARIO WHERE email_usuario = $1',
             [email]
         );
 

@@ -1,7 +1,6 @@
-import pkg from 'pg';
-const { Pool } = pkg;
+import { Pool } from "pg";
 
-export const pool = new Pool({
+const pool = new Pool({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
