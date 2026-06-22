@@ -1,4 +1,4 @@
-import pool from '../config/dataBase.js';
+import pool from '../config/dbConfig.js';
 import { verifyPassword, hashPassword } from '../utils/hashPassword.js';
 
 const register = async(dados) => {
@@ -6,7 +6,7 @@ const register = async(dados) => {
     if (!nome || !email || !senha || !cpf) throw new Error("Campos Obrigatórios");
     try {
         const { rows } = await pool.query(
-            'SELECT id_usuario FROM TB01_USUARIO WHERE email_usuario = $1 OR cpf_usuario = $2 ',
+            'SELECT cpf_usuario FROM tb01_usuario WHERE email_usuario = $1 OR cpf_usuario = $2 ',
             [email, cpf]
         );
 
@@ -14,7 +14,7 @@ const register = async(dados) => {
 
         const senhaHash = await hashPassword(senha);
         await pool.query(
-            'INSERT INTO TB01_USUARIO (nome_usuario, email_usuario, senha_usuario, cpf_usuario) VALUES ($1, $2, $3, $4)',
+            'INSERT INTO tb01_usuario (nome_usuario, email_usuario, senha_usuario, cpf_usuario) VALUES ($1, $2, $3, $4)',
             [nome, email, senhaHash, cpf]
         );
 
@@ -28,7 +28,7 @@ const login = async ({ email, senha }) => {
     if(!email || !senha) throw new Error("Email e senha obrigatórios");
     try {
         const { rows } = await pool.query(
-            'SELECT * FROM TB01_USUARIO WHERE email_usuario = $1',
+            'SELECT * FROM tb01_usuario WHERE email_usuario = $1',
             [email]
         );
 

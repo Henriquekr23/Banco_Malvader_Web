@@ -5,6 +5,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import createTable01 from './database/createDB.js';
 
 import authRoutes from './routes/authRoutes.js';
 import viewRoutes from './routes/viewRoutes.js';
@@ -30,5 +31,8 @@ app.use(express.static(path.join(basePath, 'public')));
 
 app.use('/api/auth', authRoutes);
 app.use('/', viewRoutes);
+
+// Função de criar tabela no postgress
+createTable01();
 
 export default app;
