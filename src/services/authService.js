@@ -10,7 +10,10 @@ const register = async(dados) => {
             [email, cpf]
         );
 
-        if (rows.length !== 0) throw new Error("Usuário já cadastrado");
+        if (rows.length !== 0) {
+            throw new Error("Usuário já cadastrado");
+            return {mensagem: "Usuário já cadastrado"};
+        };
 
         const senhaHash = await hashPassword(senha);
         await pool.query(

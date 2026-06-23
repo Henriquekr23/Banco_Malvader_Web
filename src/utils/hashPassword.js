@@ -7,10 +7,19 @@ async function hashPassword(password) {
         timeCost: 3,
         parallelism: 1
     });
-}
+};
 
 async function verifyPassword(hash, password) {
     return await argon2.verify(hash, password);
-}
+};
 
-export { verifyPassword, hashPassword };
+async function changePassword(storedHash, currentSenha, newSenha) {
+    const isCorrect = await verifyPassword(storedHash, currentSenha);
+
+    if(!isCorrect) throw new Error('Senha incorreta');
+
+    const newHash = await hashPassword(newSenha);
+    return newHash;
+};
+
+export { verifyPassword, hashPassword, changePassword };

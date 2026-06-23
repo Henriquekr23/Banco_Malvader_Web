@@ -10,7 +10,6 @@ async function createTable01() {
             data_criacao TIMESTAMP DEFAULT NOW()
         )
     `);
-    console.log("Tabela Pronta");
-}
+};
 
 export default createTable01;

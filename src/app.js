@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import createTable01 from './database/createDB.js';
 
 import authRoutes from './routes/authRoutes.js';
+import accountRoutes from './routes/accountRoutes.js';
 import viewRoutes from './routes/viewRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -30,6 +31,7 @@ app.use(express.static(path.join(basePath, 'public')));
 // });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/account', accountRoutes);
 app.use('/', viewRoutes);
 
 // Função de criar tabela no postgress
