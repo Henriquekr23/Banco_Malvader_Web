@@ -41,7 +41,7 @@ const login = async ({ email, senha }) => {
 
         const senhaValidaHash = await verifyPassword(usuario.senha_usuario, senha);
         if(!senhaValidaHash) throw new Error("Senha incorreta");
-        
+
         return usuario;
     } catch(error) {
         throw new Error("Erro: ", error);

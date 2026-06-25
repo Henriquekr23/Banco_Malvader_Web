@@ -15,7 +15,12 @@ form.addEventListener('submit', async(error) => {
                 'Content-Type': 'application/json'
             },
             credentials: 'include',
-            body: JSON.stringify({ nome, email, senha, cpf })
+            body: JSON.stringify({ 
+                nome, 
+                email, 
+                senha, 
+                cpf 
+            })
         });
 
         if(res.ok) {

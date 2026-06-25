@@ -1,6 +1,7 @@
 import pool from '../config/dbConfig.js';
 
-const myaccount = async({ cpf }) => {
+const myaccount = async (dados) => {
+    const {cpf} = dados;
     if (!cpf) throw new Error("Dados não encontrados");
     try {
         const { rows } = await pool.query(

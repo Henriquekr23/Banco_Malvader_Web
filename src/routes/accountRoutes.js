@@ -3,6 +3,6 @@ import * as accountController from '../controllers/accountController.js';
 
 const router = express.Router();
 
-router.post('/myaccount', accountController.myaccount);
+router.get('/myaccount/:cpf', accountController.myaccount);
 
 export default router;
