@@ -40,18 +40,16 @@ async function getUserData(cpf) {
 };
 
 logoutButton.addEventListener("click", async () => {
-    const email = userData.email;
     try {
         const res = await fetch('http://localhost:3000/api/auth/logout', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials:'include',
-            body: JSON.stringify({
-                email
-            })
+            credentials:'include'
         })
+
+        if(res) window.location.href = '/'
     } catch(error) {
         throw new Error(error);
         console.log(error);
@@ -63,7 +61,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!loggedUser) return;
 
     userData = await getUserData(loggedUser.cpf);
-    console.log("Dados do usuario: ", userData);
 
     if(userData) {
         document.getElementById('nome').value = userData.nome_usuario;

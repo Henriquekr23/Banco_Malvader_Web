@@ -16,9 +16,9 @@ export const login = async(req, res) => {
         const usuario = await authService.login(req.body);
         const token = jwt.sign(
             {
-                // id: usuario.id,
                 cpf: usuario.cpf_usuario, 
-                email: usuario.email_usuario
+                email: usuario.email_usuario,
+                nome: usuario.nome_usuario
             },
             process.env.JWT_SECRET,
             {expiresIn: process.env.JWT_EXPIRES_IN}

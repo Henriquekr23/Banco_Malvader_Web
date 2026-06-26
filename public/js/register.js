@@ -26,6 +26,8 @@ form.addEventListener('submit', async(error) => {
         if(res.ok) {
             window.location.href = '/';
             return;
+        } else {
+            alert("Usuário já cadastrado");
         }
     } catch(error) {
         console.error("Erro: ", error);
