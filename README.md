@@ -64,21 +64,3 @@ src/
 ├── database/              # Setup do banco de dados
 └── utils/                 # Funções utilitárias
 ```
-
-## 🔐 Autenticação
-
-A API utiliza JWT (JSON Web Tokens) para autenticação. Endpoints protegidos requerem o token no header:
-```
-Authorization: Bearer <token>
-```
-
-## 📝 Contribuindo
-
-1. Crie uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
-2. Commit suas mudanças (`git commit -m 'feat: descrição'`)
-3. Push para a branch (`git push origin feature/MinhaFeature`)
-4. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob licença MIT.

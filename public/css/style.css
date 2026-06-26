@@ -268,3 +268,202 @@ p a:hover {
         transform: translateY(0);
     }
 }
+
+/* =========================
+   ACCOUNT / PROFILE PAGE
+========================= */
+
+.account-page-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: calc(100vh - 120px); */
+    padding: 40px 20px 40px;
+}
+
+.account-card {
+    width: 100%;
+    max-width: 550px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    animation: fadeUp 0.5s ease;
+}
+
+.account-header {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f5;
+    padding-bottom: 20px;
+}
+
+.account-header h2 {
+    margin-bottom: 5px;
+    color: #182751;
+    font-size: 24px;
+}
+
+.account-header p {
+    color: #777788;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.account-section {
+    margin-bottom: 25px;
+}
+
+.account-section-title {
+    font-size: 16px;
+    color: #182751;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-left: 4px solid #FFD23F;
+    padding-left: 10px;
+}
+
+.info-group {
+    margin-bottom: 15px;
+}
+
+.info-group label {
+    font-size: 13px;
+    color: #888899;
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.info-value-input {
+    width: 100%;
+    padding: 12px;
+    background-color: #f8f9fc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333344;
+    font-weight: 500;
+    cursor: default;
+}
+
+.info-value-input:focus {
+    outline: none;
+    border-color: #e2e8f0;
+    box-shadow: none;
+}
+
+.password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.password-form .form-group {
+    margin-bottom: 0;
+}
+
+.password-form label {
+    font-size: 13px;
+    color: #555566;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.password-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.password-form input:focus {
+    border-color: #182751;
+    box-shadow: 0 0 0 3px rgba(24, 39, 81, 0.15);
+}
+
+.btn-change-password {
+    background-color: #182751;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.btn-change-password:hover {
+    background-color: #0f1935;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 39, 81, 0.2);
+}
+
+.account-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+    border-top: 2px solid #f0f0f5;
+    padding-top: 25px;
+}
+
+.btn-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-home:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fee2e2;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #fee2e2;
+    color: #7f1d1d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+}

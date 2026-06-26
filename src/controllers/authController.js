@@ -15,7 +15,11 @@ export const login = async(req, res) => {
     try {
         const usuario = await authService.login(req.body);
         const token = jwt.sign(
-            {id: usuario.id, email: usuario.email},
+            {
+                // id: usuario.id,
+                cpf: usuario.cpf_usuario, 
+                email: usuario.email_usuario
+            },
             process.env.JWT_SECRET,
             {expiresIn: process.env.JWT_EXPIRES_IN}
         );
@@ -38,10 +42,10 @@ export const logout = (req, res) => {
 };
 
 export const me = async(req, res) => {
-    const token = req.cookies.token
+    if(!req.usuario) return res.status(401).json({ logged: false });
 
-    if (token) res.json({
+    res.json({
         logged: true,
-        user: req.user
+        usuario: req.usuario
     });
 };
